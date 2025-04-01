@@ -26,6 +26,7 @@
     6. Spring Boot - Spring의 단점을 최소화. 설정을 간결화
 
 - Spring Boot
+    - https://spring.io/pro
     - Spring 기술을 그대로 사용(마이그레이션이 간단)
     - JPA 기술을 사용하면 ERD나 DB설계를 하지 않고도 손쉽게 DB를 생성
     - Tomcat Webserver가 내장!(설치 필요없음)
@@ -99,6 +100,40 @@
 - 기초문법
     - [JAVA기초문법](./JAVA_BASIC.md)
 
+- 반복문 : for문, while문, do-whele문
+
+	- for문 - 대표적인 반복문
+
+	```java	
+	// 일반적인 반복문
+	for (초기값; 조건식; 증감식) {
+        실행코드 블럭;
+    }
+
+    // 배열, 컬렉션을 처리하는 반복문
+    for (변수 : 컬렉션데이터) {
+        실행코드 블럭;
+    }
+    ```
+    - while문 - 조건식이 참인동안 계속 반복
+    ```java
+    while(조건식) {
+        실행코드 블럭;
+    }
+    ```
+
+    - do-while문 - 우선 실행코드를 한번 수행 후 조건을 검사 후 반복
+
+    ```java
+    do {
+        실행코드 블럭;
+    } while(조건식);
+    ```
+
+- 반복제어 키워드 : break, continue
+    - for문, while문 내에서 사용
+    - break - 조건에 맞아 반복문을 탈출할 때
+    - continue - 특수 조건만 비켜서 반복문을 계속할 때
 
 
 
