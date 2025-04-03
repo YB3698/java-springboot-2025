@@ -1,4 +1,4 @@
-package com.hugo83.spring05;
+package com.yb83.spring05;
 
 // Animal 부모클래스를 상속한 Dog 클래스
 public class Dog extends Animal {

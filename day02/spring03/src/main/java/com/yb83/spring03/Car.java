@@ -1,4 +1,4 @@
-package com.hugo83.spring03;
+package com.yb83.spring03;
 
 public class Car {
 	public String name;

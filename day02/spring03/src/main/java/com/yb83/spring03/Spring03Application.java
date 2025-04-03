@@ -1,8 +1,8 @@
-package com.hugo83.spring03;
+package com.yb83.spring03;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-// import com.hugo83.spring03.Car; // 같은 패키지 내의 클래스는 import할 필요가 없음
+// import com.yb83.spring03.Car; // 같은 패키지 내의 클래스는 import할 필요가 없음
 
 @SpringBootApplication
 public class Spring03Application {

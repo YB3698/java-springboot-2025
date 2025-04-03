@@ -1,4 +1,4 @@
-package com.hugo83.demo01;
+package com.yb83.demo01;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

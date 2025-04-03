@@ -1,4 +1,4 @@
-package com.hugo83.demo01;
+package com.yb83.demo01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

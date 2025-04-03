@@ -1,4 +1,4 @@
-package com.hugo83.spring04;
+package com.yb83.spring04;
 
 public class NewCar {
     // 멤버변수/속성

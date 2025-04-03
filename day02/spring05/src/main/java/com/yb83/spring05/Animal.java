@@ -1,4 +1,4 @@
-package com.hugo83.spring05;
+package com.yb83.spring05;
 
 // import java.lang.Object;
 
