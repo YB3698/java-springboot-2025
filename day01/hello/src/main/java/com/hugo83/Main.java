@@ -1,4 +1,4 @@
-package com.hugo83;
+package com.yb83;
 
 public class Main {
     public static void main(String[] args) {

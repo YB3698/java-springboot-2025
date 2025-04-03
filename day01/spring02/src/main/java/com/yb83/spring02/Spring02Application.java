@@ -1,4 +1,4 @@
-package com.hugo83.spring02;
+package com.yb83.spring02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,7 +22,7 @@ public class Spring02Application {
 		System.out.println("입력 비밀번호 --> " + passwd);
 
 		// if문 연습
-		if (userid.equals("hugo83") && passwd.equals("12345")) {
+		if (userid.equals("yb") && passwd.equals("12345")) {
 			System.out.println("로그인 성공!");
 		} else {
 			System.out.println("로그인 실패!! 아이디 또는 비밀번호 오류!");
