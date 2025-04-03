@@ -1,4 +1,4 @@
-package com.hugo83.spring02;
+package com.yb83.spring02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,7 @@ public class Spring02Application {
 
 	public void sayNickName(String nickName) throws Exception {
 		if (nickName.equals("애슐리")) {
+			
 			throw new Exception("이 별명은 안돼요~!!"); // 자신이 예외를 처리하지 않음. 호출한 main메서드에 예외를 던짐
 		}
 
@@ -28,7 +29,7 @@ public class Spring02Application {
 		System.out.println(result);
 
 		// 예외처리. 배열의 인덱스가 길이를 넘어가면 안됨
-		String[] names = { "Hugo", "Ashley", "Jini" };
+		String[] names = { "yb", "Ashley", "Jini" };
 		try {
 			System.out.println(names[3]);
 		} catch (ArrayIndexOutOfBoundsException e) {

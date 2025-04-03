@@ -1,4 +1,4 @@
-package com.hugo83.spring01;
+package com.yb83.spring01;
 
 public interface Animal {
     // public String name = "이름";

@@ -1,4 +1,4 @@
-package com.hugo83.spring01;
+package com.yb83.spring01;
 
 public class Cat implements Animal {
     private String name;

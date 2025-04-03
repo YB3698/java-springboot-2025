@@ -1,4 +1,4 @@
-package com.hugo83.spring01;
+package com.yb83.spring01;
 
 // interface는 implements 키워드를 사용해야함
 public class Dog implements Animal {
