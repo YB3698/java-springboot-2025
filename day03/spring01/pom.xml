@@ -12,7 +12,11 @@
 	<artifactId>spring01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring01</name>
+<<<<<<< HEAD
 	<description>Demo project for Spring Boot</description>
+=======
+	<description>Java syntax study for Spring Boot</description>
+>>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 	<url/>
 	<licenses>
 		<license/>
