@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-### Java 기초문법
-
-### 기본
-- 소스코드 템플릿
-
-    ```java
-    // 한줄 주석.
-    /*
-     * 여러줄
-     * 주석
-    */
-    package com.yb83.spring01; // 자기 프로젝트의 패키지명(폴더)
-
-    import org.springframework.boot.SpringApplication; // 라이브러리, 클래스 가져오기
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-    @SpringBootApplication // 자바프로젝트 실행을 도와주는 어노테이션
-    public class Spring01Application { // 자신 클래스명
-    
-        // 엔트리포인트(프로젝트당 하나만 존재)
-        public static void main(String[] args){ // 함수, 클래스, 조건문, 반복무 시작이 중괄호중괄호 : ({)
-            SpringApplication.run(Spirng01Application.class, args); // 한줄이 끝나면 반드시 ; 붙이기
-            System.out.printn("Hello, Spring Boot"); // 콘솔출력, 문자열 향상 : "
-=======
 ## Java 기초문법
 
 ### 기본
@@ -45,27 +20,10 @@
             SpringApplication.run(Spring01Application.class, args); // 한줄이 끝나면 반드시 ;
 
             System.out.println("Hello, Spring Boot!"); // 콘솔출력, 문자열을 항상 "
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         }
     }
     ```
 
-<<<<<<< HEAD
-    - 자바특징
-        - 간결하면서 강력한 객체지향 언어
-        - 플랫폼 독립적, OS에 영향을 거의 받지 않음
-        - 라이브러리가 아주 다양, 생산성 향상
-        - GUI 프로그램 개발에는 부적합(Swing, JavaFX로 가능)
-        - 정밀하게 HW를 제어하는 프로그램에도 부적합
-
-    - JVM 위에서 동작
-        - Java Virtual Machine
-        - sourcecode.java -> javac(java compiler) -> bytecode.class -> java로 실행
-
-    - 활용분야
-        - 웹에 특화. 안정적이고 보완이 좋아서 인터넷 포털, 인터넷 뱅킹, 쇼핑몰, 기업시스템에 많이 쓰임
-        - 안드로이드 개발 언어였음. Kotlin으로 변경
-=======
 - 자바특징
     - `간결`하면서 강력한 객체지향 언어
     - `플랫폼 독립적`, OS에 영향을 거의 받지 않음
@@ -80,7 +38,6 @@
 - 활용분야
     - 웹에 특화. 인터넷 포털, 인터넷 뱅킹, 쇼핑몰, 기업시스템
     - 초기 안드로이드 개발 대표 언어였음. 현재는 Kotlin으로 변경
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 ### 기초문법
 
@@ -90,64 +47,22 @@
     ```java
     [접근제어자] 타입 변수명;
     ```
-<<<<<<< HEAD
-    - 접근제어자 - 변수의 접근 범위를 지정하는 키워드(public, default, protected, private)
-=======
     - 접근제어자 - 변수의 접근범위를 지정하는 키워드(public, default, protected, private)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
     - 타입 - 자료형. 자바는 명시적으로 타입 지정해야 함
     - 변수명 - 일반적인 변수명 지정법과 동일
 
     ```java
-<<<<<<< HEAD
-    int account = 10000000;             // 정수형(Primitive type)
-    private String sayhi = "Hello!";    // 문자열형(Class type)
-    MyClass inst = new MyClass();       // 사용자정의 클래스형
-    ```
-=======
     int account = 10000000;     // 정수형(Primitive type)
     private String sayhi = "Hello!";    /// 문자열형(Class type)
     MyClass inst = new MyClass();     // 사용자정의 클래스형
     ```
 
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 - 변수종류
     - 지역변수, 전역변수, 매개변수, 멤버변수, 인스턴스변수...
 
 #### 자료형
 - 원시자료형(Primitive type)
 
-<<<<<<< HEAD
-|구분|자료형|크기|설명|
-|:---:|:---:|:---|:---|
-|정수형|byte|1byte, -128 ~ 127|가장 작은 단위, 8bit|
-|      |char|2bytes, 0 ~ 65535|unsigned 자료형, 문자 표현용|
-|      |short|2bytes, -32768 ~ 32767|signed자료형, 작은 데이터 처리용|
-|      |int|4bytes, -2147백만 ~ 2147백만|기본자료형|
-|      |long|8bytes, -922경 ~ 922경|큰 정수 자료형|
-|실수형|float|4bytes, 1.4E-45 ~ 3.40E38|실수형, 숫자 뒤에 **F 사용(필수)**|
-|      |double|8bytes, 4.9E-324 ~ 1.79E308|실수형 기본 자료형|
-|논리형|boolean|1byte, true 또는 false|논리형, 참/거짓 표현용|
-
-```java
-int number;
-char ch_first = 'a';
-long longnum = 2345678L;
-float fnum = 3.141592F;
-boolean isTrue = false;
-```
-
-### 연산자
-- 연산자는 거의 대부분의 언어에서 동일하게 사용
-    - 사칙연산 : +, -, *, /, %
-    - 대입연산 : =, +=, -=, *=, /=. %=,++, , -- 
-               (a++ -> a = a + 1 동일) 
-    - 비트연산 : &, |, ^, ~, >>, <<
-    - 논래연산 : &&, ||, !
-    - 관계연산 : ==, >, >=, <, <=, !=
-
-    - [JAVA문법실습](./day01/spring01/src/main/java/com/yb83/spring01/Spring01Application.java)
-=======
     |구분|자료형|크기|설명|
     |:---:|:---:|:---|:---|
     |정수형|byte|1byte, -128~127|가장 작은단위, 8bit |
@@ -176,20 +91,13 @@ boolean isTrue = false;
     - 관계연산 : ==, >, >=, <, <=, !=
 
     - [Java문법실습](./day01/spring01/src/main/java/com/hugo83/spring01/Spring01Application.java)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 #### 흐름제어
 - 조건(분기)문 : if문, switch문
     - if문
-<<<<<<< HEAD
-
-    ```java
-    if(조건식) {
-=======
     
     ```java
     if (조건식) {
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         // if문 안으로 들어와서
         실행코드 블럭;
     } else if (조건식) {
@@ -199,12 +107,8 @@ boolean isTrue = false;
         실행코드 블럭;
     }
     ```
-<<<<<<< HEAD
-    - switch(-case)문 - 조건값에 따라 여러 분기로 나눌 때 좋음. if문으로 대체 가능
-=======
 
     - switch(-case)문 - 조건값에 따라 여러 분기로 나눌때 좋음. if문으로 대체 가능
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
     ```java
     switch (입력변수) {
@@ -215,16 +119,6 @@ boolean isTrue = false;
             실행코드 블럭;
         case 조건값3:
             실행코드 블럭;
-<<<<<<< HEAD
-            break;   // 조건값2에서 시작하면 조건값3까지 모두 수행
-        default:
-            기본실행코드 블럭;
-            break,  // case나 default에 되도록이면 break 빼지 말것
-    }
-    ```
-
-    - 3항 연산 - 간단하게 구현할 조건문 if-else 대신 사용. 실행코드 블럭이 한줄일 때
-=======
             break;  // 조건값2에서 시작하면 조건값3까지 모두 수행
         default:
             기본실행코드 블럭;
@@ -233,26 +127,10 @@ boolean isTrue = false;
     ```
 
     - 3항 연산 - 간단하게 구현할 조건문 if-else 대신 사용. 실행코드 블럭이 한줄일때
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
     ```java
     String result = (isLogin) ? "로그인성공!" : "로그인실패";
 
-<<<<<<< HEAD
-    if (isLogin) {
-        result = "로그인성공!";
-    } else {
-        result = "로그인실패";
-    }
-    ```
-    - [Java문법실습](./day01/spring02/src/main/java/com/yb83/spring02/Spring02Application.java)
-    
-- 반복문 : for문, while문, do-while문
-    - for문 - 대표적인 반복문
-    ```java
-    // 일반적인 반복문
-    for (초기값; 조건식; 증감식){
-=======
     String result;
     if (isLogin) {
         result = "로그인성공!";    
@@ -269,7 +147,6 @@ boolean isTrue = false;
     ```java
     // 일반적인 반복문
     for (초기값; 조건식; 증감식) {
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         실행코드 블럭;
     }
 
@@ -278,38 +155,17 @@ boolean isTrue = false;
         실행코드 블럭;
     }
     ```
-<<<<<<< HEAD
-    - [Java문법실습](./day01/spring03/src/main/java/com/yb83/spring03/Spring03Application.java)
-
-    - while문 - 조건식이 참인 동안 계속 반복
-    ```java
-=======
 
     - [Java문법실습](./day01/spring03/src/main/java/com/hugo83/spring03/Spring03Application.java)
 
     - while문 - 조건식이 참인동안 계속 반복
 
     ```java    
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
     while (조건식) {
         실행코드 블럭;
     }
     ```
 
-<<<<<<< HEAD
-    - do-while문 - 우선 실행코드를 한번 수행 후 조건을 검사 후 반복
-    ```java
-    do {
-        실행코드 블럭;
-    } while(조건식);
-    ```
-    - [Java문법실습](./day02/spring01/src/main/java/com/yb83/spring01/Spring01Application.java)
-
-- 반복문제어 키워드 : break, continue
-    - for문, while문 내에서 사용
-    - break - 조건에 맞아 반복문을 탈출할 때 사용
-    - continue - 특수 조건만 비켜서 반복문을 계속할 때 사용
-=======
     - do-while문 - 우선 실행코드를 한번 수행 후 조건을 검사후 반복
 
     ```java    
@@ -325,7 +181,6 @@ boolean isTrue = false;
     - for문, while문 내에서 사용
     - break - 조건에 맞아 반복문을 탈출할 때
     - continue - 특수 조건만 비켜서 반복문을 계속할 때
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 #### 배열
 - 여러 데이터가 필요할 경우 하나의 변수로 처리 가능
@@ -333,21 +188,6 @@ boolean isTrue = false;
 - 데이터를 순차적으로 접근하기 때문에 위치를 모르면 효율이 좋지 않음
 - Java의 배열은 모두 동일한 자료형이여야 함
 - 중간의 데이터를 추가하거나 삭제하려면 기존 데이터를 모두 이동해야 함
-<<<<<<< HEAD
-    ```java
-    타입 면수명[] = {데이터 배열값, ...};  // 데이터 갯수에 따라 배열 사이즈가 결정
-    타입[] 변수명 = {데이터 배열값, ...};
-    타입[] 변수명 = new 타입[5];  // 아무값 없이 초기화
-
-    변수명[1];  // 배열 1번 인덱스에 위치
-    변수명[1] = 값;  // 값 할당
-    System.out.println(변수명[1]);  // 값 사용
-
-- 배열에 사용할 메서드
-    - sort() : 배열 정렬
-    - toString() : 배열 객체 ID를 출력
-    - asList() : 배열을 리스트로 변경(!)
-=======
 
     ```java
     타입 변수명[] = {데이터 배열값, ...}; // 데이터 갯수에 따라 배열 사이즈가 결정
@@ -363,31 +203,20 @@ boolean isTrue = false;
     - sort() : 배열 정렬
     - toString() : 배열 객체ID를 출력
     - asList() : 배열을 리스트로 변경(List)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
     - copyOf() : 배열을 복사해서 새로운 배열로 반환
     - equals() : 두개 배열이 동일한지 여부 판별
     - binarySearch() : 배열내 요소를 찾아서 인덱스를 반환
 
-<<<<<<< HEAD
-- Java 컬렉션 프레임워크 - 배열을 좀 더 기능적으로 강화한 객체
-    - **List**, Stack, Vector, ArrayList, HanshSet,HashMap(파이썬 딕셔너리), HashTable
-- [Java문법실습](./day02/spring02/src/main/java/com/yb83/spring02/Spring02Application.java)
-=======
 - Java 컬렉션 프레임워크 - 배열을 좀더 기능적으로 강화한 객체
     - **List**, Stack, Vector, ArrayList, HashSet, HashMap(파이썬 딕셔너리), HashTable
 
 - [Java문법실습](./day02/spring02/src/main/java/com/hugo83/spring02/Spring02Application.java)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 #### 메서드
 - 함수와 동일. 객체지향언어에서는 함수를 메서드로 사용
 
     ```java
-<<<<<<< HEAD
-    [접근제어자] 리턴타임 메서드명([파라미터...]) {
-=======
     [접근제어자] 리턴타입 메서드명([파라미터...]) {
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         메서드 코드 블럭;
     }
     ```
@@ -396,32 +225,13 @@ boolean isTrue = false;
     - 가변 인자(파라미터) - 파라미터 개수가 동적일 때 사용
 
 - **static**
-<<<<<<< HEAD
-    - 소스코드 실행 후 클래스 인스턴스가 생성안됨
-=======
     - 소스코드 실행후 클래스 인스턴스가 생성안됨
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
     - 이 상태에서 프로그램 엔트리포인트 메서드는 바로 실행되어야 함
     - static으로 하면 프로그램 실행 전부터 종료 직전까지 그냥 사용할 수 있는 메서드가 됨
     - static 메서드에서는 같은 클래스 내 일반 메서드는 호출 불가
     - static 메서드만 호출 가능
     - 다른 클래스는 상관없음
 
-<<<<<<< HEAD
-- **null** 
-    - 프로그래밍 상에 모든 곳에서 null이라고 사용
-    - 파이썬만 None으로 사용
-- [Java문법실습](./day02/spring03/src/main/java/com/yb83/spring03/Spring03Application.java)
-
-#### 객체/클래스
-- 개요
-    - 현실세계를 반영하여서 프로그래밍을 하는 기법
-    - Object-Oriented Programming - OOP, 객체지향 프로그래밍
-        - C++, Java, Python, C#, Go, Rust, Kotlin ...
-    - vs. Procedure-Oriented Programming - 절차적 프로그래밍
-        - C, SQL, ...
-
-=======
 - **null**
     - 프로그래밍 상에 모든 곳에서 null이라고 사용
     - 파이썬만 None으로 사용
@@ -436,17 +246,12 @@ boolean isTrue = false;
     - vs. Procedure-Oriented Programming - 절차적 프로그래밍
         - C, SQL, ...
     
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 - 클래스 개요
     - 객체를 정의하는 틀
     - 명사(멤버변수/속성)와 동사(멤버메서드)의 집합
 
     ```java
-<<<<<<< HEAD
-    class NewCar{
-=======
     class NewCar {
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         // 명사부분(멤버변수/속성)
         String model_name;
         String company;
@@ -454,11 +259,7 @@ boolean isTrue = false;
         int release_year;
         String fuel_type;
 
-<<<<<<< HEAD
-        //동사부분(메서드)
-=======
         // 동사부분(메서드)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         public void doAccelerate() { // 가속
         }
         public void doBreak() { // 중지
@@ -467,15 +268,6 @@ boolean isTrue = false;
         }
         public void turnLeft() { // 좌회전
         }
-<<<<<<< HEAD
-        public void turnRight() { // 우회전
-        }
-
-        // 생성자함수(파이썬 __init__와 유사)
-        NewCar() {
-            model_name = "없음";
-            company - "현대자동차";
-=======
         public void turnRight() {  // 우회전
         }
 
@@ -483,7 +275,6 @@ boolean isTrue = false;
         NewCar() {
             model_name = "없음";
             company = "현대자동차";
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         }
         NewCar(String model_name, String company, int release_year) {
             this.model_name = model_name;
@@ -492,20 +283,6 @@ boolean isTrue = false;
         }
     }
     ```
-<<<<<<< HEAD
-- 인스턴스(instance)
-    - 객체를 만드는 클래스를 new로 새로 생성
-    - 두개의 인스턴스가 하나를 가르칠 수 없음
-
-    ```java
-    NewCar avante = new NewCar(); // 기본생성자
-    NewCar tesla = new NewCar("X3","Tesla", 2021); // 인자초기화 생성자
-
-    tesla.turnRight(); // 우회전
-    // ...
-    ```
-- [Java문법실습](./day02/spring04/src/main/java/com/yb83/spring04/Spring04Application.java)
-=======
 
 - 인스턴스(instance) 
     - 객체를 만드는 클래스를 new로 새로 생성
@@ -519,7 +296,6 @@ boolean isTrue = false;
     // ...
     ```
 - [Java문법실습](./day02/spring04/src/main/java/com/hugo83/spring04/Spring04Application.java)
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 #### 상속
 - 개요
@@ -529,22 +305,6 @@ boolean isTrue = false;
 
 - 특징
     - 부모(슈퍼)클래스에서 정의된 변수와 메서드를 물려받는다
-<<<<<<< HEAD
-    - 새로운 변수와 메서드를 추가할 수 있다.
-    - 부모클래스에서 물려받은 메서드를 수정할 수 있다(오버라이딩)
-    - 동일한 부모 클래스를 상속받은 하위 자식 클래스들은 타입이 호환된다
-
-    ```java
-    [접근제어자] class 클래스명 extends 부모클래스명 {
-        // 부모 클래스에 없는 멤버변수, 메서드 추가
-        // 부모 메서드를 오버라이딩
-    }
-    ```
-- [Java문법실습](./day02/spring05/src/main/java/com/yb83/spring05/Spring05Application.java)
-
-#### 접근제어자
-- 클래스, 변수, 메서드 등에 외부에서 어떤 방식으로 접근할 건지를 정의하는 키워드
-=======
     - 부모클래스에서 물려받은 메서드를 수정할 수 있다(오버라이딩)
     - 새로운 변수와 메서드를 추가할 수 있다
     - 동일안 부모클래스를 상속받은 하위 자식클래스들은 타입이 호환된다
@@ -559,31 +319,11 @@ boolean isTrue = false;
 
 #### 접근제어자
 - 클래스, 변수, 메서드 등에 외부에서 어떤방식을 접근할건지를 정의하는 키워드
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 - 객체지향의 특징 중 캡슐화를 위해서 사용
 - 접근제어자 분류
     - public : 접근 제한이 없음. 누구나 접근 가능
     - private : 같은 클래스 내에서만 접근 가능
     - protected : 같은 패키지 내 또는 다른 패키지의 자식 클래스에서만 접근 가능
-<<<<<<< HEAD
-    - default : (키워드 생략 가능)같은 패키지 내에서만 접근 가능
-- 사용빈도 : public > default > private > protected
-
-#### Getter/Setter
-- 캡슐화를 제대로 하기 위한 코딩 방법
-
-    ```java
-    poppy.age = -19; // 이런 현상을 막아야됨
-    ```
-
-    - private 접근 제어자로 멤버변수 선언
-    - Getter/Setter 메서드의 접근제어를 public, default, protected 등으로 설정
-    - Getter : 값을 리턴. 포맷팅을 해서 리턴 가능, get 접두어로 시작하는 메서드
-        - get + 멤버변수명으로 메서드명 생성
-    - setter : 중요! 잘못된 값이 들어가지 않도록 막아주는 메서드
-        - set + 멤버변수명(입력파라미터) 형태로 생성
-        - 내부적으로 입력값 필터링
-=======
     - default : (키워드 생략가능)같은 패키지 내에서만 접근 가능
 - 사용빈도 : public > default > private > protected
 
@@ -601,7 +341,6 @@ boolean isTrue = false;
     - Setter : 중요! 잘못된 값이 들어가지 않도록 막아주는 메서드
         - set + 멤버변수명(입력파라미터) 형태로 생성
         - 내부로직으로 입력값 필터링
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
 #### Object 클래스
 - 모든 클래스의 조상 클래스. extends를 사용하지 않아도 항상 상속됨
@@ -611,19 +350,11 @@ boolean isTrue = false;
 #### 추상 클래스
 - 구체적인 내용이 포함되지 않은 클래스
 - 반드시 자식클래스에서 오버라이딩으로 구현
-<<<<<<< HEAD
 - '추후 다시 학습필요'
 
 #### 인터페이스
 - 상수와 추상메서드로만 구성된 클래스의 한 형태
 - 아무런 기능이 없고 단지 어떻게 구현을 해야 한다는 규칙만 선언되어 있음
-=======
-- `추후 다시 학습요`!
-
-#### 인터페이스
-- 상수와 추상메서드로만 구성된 클래스의 한 형태
-- 아무런 기능이 없고 단시지 어떻게 구현을 해야 한다는 규칙만 선언되어 있음
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 - 중대형 프로젝트 시 일관되고 정형화된 개발을 위한 표준화를 위해 사용
 
     ```java
@@ -632,10 +363,6 @@ boolean isTrue = false;
         [접근제어자] 리턴값 메서드명();
     }
     ```
-<<<<<<< HEAD
-=======
-
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 - 인터페이스는 상속이라 부르지 않고 구현이라고 부름
 
     ```java
@@ -648,41 +375,16 @@ boolean isTrue = false;
 
 - 스프링의 의존성 주입(Dependency Injection)의 핵심
 
-<<<<<<< HEAD
-#### 예외처리
-- 프로그램의 비정상적 종료를 막기위한 보호막
-- 소스코드상의 오류 : 에러/컴파일 에러. 수정이 용이
-- 실행 중 발생하는 오류 : 예외/런타임 에러. 수정이 어렵고 언제 발생할지 모름
-=======
 
 #### 예외처리
 - 프로그램의 비정상적 종료를 막기위한 보호막
 - 소스코드 상의 오류 : 에러/컴파일 에러. 수정이 용이
 - 실행중 발생하는 오류 : 예외/런타임 에러. 수정이 어려움. 언제 발생할지 모름
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 
     ```java
     try {
         예외가 발생할 수 있는 코드블럭;
     } catch (예외클래스 e) {
-<<<<<<< HEAD
-        예외 발생 시 처리 코드블럭;
-    } [finally] {
-        예외 발생 유무와 상관없이 항상 처리할 코드블럭;
-    }
-    ```
-
-- 예외 클래스 : ArithmeticExecption, ArrayIndexOutOfBoundsExceoption, NullPointerException
-- 모든 예외클래스는 Exception 클래스를 상속받아서 생성
-- 단순히 Exception 클래스로 예외처리 해도 무방
-
-#### 예외던지기
-- 예외를 직접 처리하지 않고 상위 클래스나 메서드에게 처리를 인가
-
-    ```java
-    리턴값 호출메서드(인자...) throws Exeption {
-        예외가 발생할 코드 블럭;
-=======
         예외발생시 처리 코드블럭;
     } [finally] {
         예외발생 유무와 상관없이 항상 처리할 코드블럭;
@@ -699,36 +401,30 @@ boolean isTrue = false;
     ```java
     리턴값 호출메서드(인자...) throws Exception {
         예외가 발생할 코드블럭;
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
         throw new Exception();
     }
 
     ...
     try {
         호출메서드(인자);
-<<<<<<< HEAD
-    } catch(Exception e) {
-        예외처리
-    }
-    ```
-=======
     } catch (Exception e) {
         예외처리
     }
     ```
+- [Java문법실습](./day03/spring02/src/main/java/com/yb83/spring02/Spring02Application.java)
 
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 #### 객체지향 특징
 - 추가로 학습할 내용
 - 다형성, 상속, 캡슐화, 추상화
 
 #### 문자열, 시간타입 핸들링
+
 - String
-<<<<<<< HEAD
-
-
-
-=======
     - 컴퓨터 -> 숫자, 사람 -> 문자
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
+
+- [Java문법실습](./day03/spring04/src/main/java/com/yb83/spring04/Spring04Application.java)
+
+#### 시간타입 핸들링
+- [Java문법실습](./day03/spring04/src/main/java/com/yb83/spring04/Spring04Application.java)
+
     

@@ -3,10 +3,6 @@ package com.yb83.spring02;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-<<<<<<< HEAD
-=======
-
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,21 +13,6 @@ public class Spring02Application {
 		SpringApplication.run(Spring02Application.class, args);
 
 		// 배열
-<<<<<<< HEAD
-		int[] score = {90, 98, 100, 76, 83};
-		System.out.println(score.length);
-
-		score[4] = 85;
-
-		System.out.println(score); // 배열 변수를 출력한다고 값을 표시하지 않음
-
-		for (int i = 0; i < score.length; i++){
-			System.out.println(score[i]);
-
-		// 두번째 배열
-		String[] carcompany = {"Hyundai", "Kia", "Toyota", "Benz", "BMW", "Tesla"};
-
-=======
 		int[] score = { 90, 98, 100, 76, 83 };
 		System.out.println(score.length);
 
@@ -46,40 +27,24 @@ public class Spring02Application {
 		// 두번째 배열
 		String[] carcompany = { "Hyundai", "Kia", "Toyota", "Benz", "BMW", "Tesla" };
 		
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 		for (String car : carcompany) {
 			System.out.println(car);
 		}
 
 		// Java 컬렉션으로 변경
 		List<String> car_list = Arrays.asList(carcompany);
-<<<<<<< HEAD
-		System.out.println(car_list); // 파이썬과 동일
-		System.out.println(car_list.get(1));
-
-		Arrays.sort(score); // 배열 정렬
-=======
 		System.out.println(car_list); // 파이썬과 동일		
 		System.out.println(car_list.get(1));
 		
 		Arrays.sort(score);
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 		for (int item : score) {
 			System.out.println(item);
 		}
 
-<<<<<<< HEAD
-		Arrays.sort(carcompany, Collections.reverseOrder()); // 역순 정렬
-		for (String car : carcompany) {
-			System.out.println(car);
-		}
-		}
-=======
 		Arrays.sort(carcompany, Collections.reverseOrder()); // 내림차순 정렬
 		for (String car : carcompany) {
 			System.out.println(car);
 		}
->>>>>>> 27b10b2f32332609b71b7614cc3868c08a5ae472
 	}
 
 }
