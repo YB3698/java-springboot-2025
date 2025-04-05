@@ -1,7 +1,8 @@
-package com.yb.spring01;
+package com.yb83.spring01;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.boot.SpringApplication;
@@ -17,11 +18,11 @@ public class Spring01Application {
 		LocalDate date1 = LocalDate.now();
 		System.out.println(date1);
 
-		LocalDate date2 = LocalDate.of(2017,7,9);
+		LocalDate date2 = LocalDate.of(2017, 7, 9);
 		System.out.println(date2);
 
-		// Date format
-		String date3 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-mm-dd GG:mm:ss"));
+		// Date formatting
+		String date3 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		System.out.println(date3);
 
 		System.out.println(LocalDate.now().getYear());
@@ -32,7 +33,7 @@ public class Spring01Application {
 		System.out.println(LocalDate.now().getDayOfWeek());
 
 		// 날짜차이
-		
+		System.out.println(LocalDate.now().plusDays(2));
+		System.out.println(LocalTime.now().minusHours(2));
 	}
-
 }

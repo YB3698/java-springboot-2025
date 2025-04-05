@@ -10,6 +10,5 @@ public class Storage<P> {
 
     public void setItem(P item) {
         this.item = item;
-    }
-
+    }    
 }
