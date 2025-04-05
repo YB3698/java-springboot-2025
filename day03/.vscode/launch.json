@@ -2,11 +2,38 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Spring Boot-Spring04Application<spring04>",
+      "name": "Spring01Application",
+      "request": "launch",
+      "mainClass": "com.yb83.spring01.Spring01Application",
+      "projectName": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Spring01Application<spring01>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "mainClass": "com.yb83.spring04.Spring04Application",
-      "projectName": "spring04",
+      "mainClass": "com.yb83.spring01.Spring01Application",
+      "projectName": "spring01",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Spring02Application<spring02>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.yb83.spring02.Spring02Application",
+      "projectName": "spring02",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Spring03Application<spring03>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.yb83.spring03.Spring03Application",
+      "projectName": "spring03",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     },
