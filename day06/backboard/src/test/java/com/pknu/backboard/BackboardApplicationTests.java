@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.pknu.backboard.entity.Board;
 import com.pknu.backboard.repository.BoardRepository;
-import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 class BackboardApplicationTests {
@@ -84,5 +84,17 @@ class BackboardApplicationTests {
 		Board board = opBoard.get();
 		this.boardRepository.delete(board); // 게시글 삭제
 		assertEquals(3, boardRepository.count()); // 게시글이 1개 삭제되어야 함
+   }
+   @Test // 수정 테스트
+   void testUpdateOne() {
+		Optional<Board> opBoard = this.boardRepository.findById(1L); // 1번 보드데이터 가져오기
+		assertTrue(opBoard.isPresent()); // 가져온 데이터가 있는지 여부 체크
+
+		Board board = opBoard.get(); // Optional<Board>가 NULL이면 get() 할 수 없으므로, isPresent()로 체크 후 get() 호출
+		board.setContent("내용이 테스트에서 변경되었습니다!!!");
+
+		this.boardRepository.save(board);
+
+		// 테스트 내용 그대로 JPA 코딩 시 사용가능
    }
 }

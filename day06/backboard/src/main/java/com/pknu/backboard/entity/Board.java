@@ -1,37 +1,42 @@
 package com.pknu.backboard.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.OneToMany;
+import lombok.*;
 
 @Getter
-@Setter // Lombok을 사용하여 Getter와 Setter 메서드를 자동 생성
-@Entity // JPA 엔티티로 지정(Board 테이블과 매핑)
+@Setter // Lombok을 사용하여 Getter와 Setter 자동 생성
+@Entity // JPA 엔티티로 지정
 public class Board {
 
-  @Id // JPA에서 기본 키로 지정
-  @GeneratedValue(strategy = GenerationType.SEQUENCE) // 기본 키 생성 전략을 시퀀스로 설정
-  private Long bno; // Board 테이블의 PK, bno
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long bno;   // Board 테이블의 PK, bno
 
-  @Column(name="subject",length = 250)
-  private String title; // 게시글 제목
+    @Column(length = 250)
+    private String title;   // 게시판 제목
 
-  @Column(length = 8000)
-  private String content; // 게시글 내용
+    @Column(columnDefinition = "CLOB")
+    private String content; // 게시글 내용
 
-  @CreatedDate
-  @Column(updatable = false) // 수정 불가, 생성 시 자동으로 현재 시간 설정
-  private LocalDateTime createDate; // 게시글 작성일
+    @CreatedDate
+    @Column(updatable = false) // 한번 작성 후 수정하지 않음
+    private LocalDateTime createDate;    // 게시글 작성일
 
-  @LastModifiedDate
-  private LocalDateTime modifyDate; // 게시글 수정일
+    @LastModifiedDate
+    private LocalDateTime modifyDate;   // 게시글 수정일
+
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE) 
+    private List<Reply> replyList; // 댓글 목록
 }
