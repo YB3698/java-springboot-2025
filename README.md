@@ -487,15 +487,16 @@
 1. 단위 테스트
   1. UPDATE 테스트
 
-2. 개발 계속
+2. DB 연동 개발 계속
     1. Entity 중 Board(게시글)의 댓글 Reply 클래스 생성
     2. DB ERD에서 Board : Reply => 1:N(1대 다)를 관계를 가짐
     3. @(Annotation) 추가
       - @OneToMony(mappedBy = "board", cascade = CascadeType.REMOVE) : 1대다 ERD 관계로 부모클래스(테이블)에 작성하는 부분
       - @ManyToOne : 다대1 ERD관계로 자식 클래스에 작성하는 부분
       - @Service : 서비스 모듈을 지칭(SpringFramework)
-      - @RequiredArgsConstructor : 생성자를 만들어줌. 파라미터가 존재하는 생성자를 자동으로 생성(Lombok)
-      - @NoArgsContructor : 피라미터 없는 빈생성자를 
+      - @RequiredArgsConstructor : final등의 멤버변수를 파라미터 생성자를 만들어주는 것(Lombok)
+      - @AllArgsContructor : 클래스 멤버변수를 사용해서 생성자를 만들어주는 것(Lombok)
+      - @NoArgsContructor : 피라미터(클래스 멤버변수) 없는 빈 생성자를 자동으로 생성(Lombok)
     4. ReplyRepository 인터페이스 작성
     5. Service 작성
       - 데이터 처리를 위해서 작성하는 클래스. MVC 패턴처럼 모듈화로 복잡한 코드를 단순화, 역할분리를 위해서 
