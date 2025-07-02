@@ -520,18 +520,46 @@
   - ${} : 변수표현식. 변수에 들어있는 값을 화면에 표시하는 기능. Model에 들어있는 데이터를 화면에 표시
   - @{} : URL 링크 표현식. 정적인 링크 또는 라우팅되는 경로를 생성하는 기능
   - #{} : 메시지 표현식
+  - *{} : 선택변수 표현식. th:object로 선택된객체 내의 값에 접근
+  - ~{} : Fragment포함 표현식. 템플릿 Fragement를 사용
   - thymeleaf 속성에만 사용 가능 : th:text, th:href ...
 
 4. 웹 페이지 디자인
     1. resources/static : css, js, 정적 html 파일들이 위치
     2. static/main.css : 전체에서 사용할 css 파일
-    3. Bootstrap 사용
+    3. Bootstrap 적용
+      - https://getbootstrap.com Current v5.3.7 download 클릭
+      - https://github.com/twbs/icons/releases/tag/v1.13.1
+    4. board_detail.html : 부트스트랩 적용
 
 5. 전체 HTML에 디자인 적용
   1. build.gradle에 thymeleaf-layout 의존성 추가
   ```gradle
-  
+  // Thymeleaf layout 의존성 추가
+
   ```
-https://github.com/user-attachments/assets/5f8d3683-4203-415a-87f1-10a8b6c9c06c
+  2. 레이아웃 템플릿 페이지 작성
+  3. board_list.html에 적용
+      
+      https://github.com/user-attachments/assets/5f8d3683-4203-415a-87f1-10a8b6c9c06c
+
+## 8일차
+### 스프링부트 Backboard 프로젝트(계속)
+3. DB 연동 개발
+    1. 게시글 등록 기능
+    2. Spring boot Validation 기능 추가 : 입력검증
+
+      ```gradle
+      // 추가 의존성
+	    implementation 'org.springframework.boot:spring-boot-starter-validation'
+      ```
+      - Anntation으로 검증 수행
+        - @Size, @NotNull, @NotEmpty, @Past(과거 날짜만 가능), @Future(미래 날짜만)
+        - @FutureOrPresent(미래 또는 오늘 날짜만), @Pattern(정규패턴)
+    3. 입력검증 클래스, BoardForm.java 생성
+    4. BoardForm 객체를 컨트롤러에 전달
+    5. board_create.html에 입력검증 태그, 속성 등 추가
+        - GetMethod, PostMethod에 BoardForm 파라미터를 추가!
+    6. board_detail.html에 댓글 입력 검증
 
 

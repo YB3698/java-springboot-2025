@@ -2,59 +2,67 @@ package com.pknu.backboard.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+
+import com.pknu.backboard.entity.Board;
+import com.pknu.backboard.entity.Reply;
+import com.pknu.backboard.service.BoardService;
+import com.pknu.backboard.validation.BoardForm;
+import com.pknu.backboard.validation.ReplyForm;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.pknu.backboard.entity.Board;
-import com.pknu.backboard.service.BoardService;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-
-@RequestMapping("/board")
+@RequestMapping("/board")  // 공통이 되는 URL 
 @Controller
 @Log4j2
 @RequiredArgsConstructor
 public class BoardController {
-    
+
+    @Autowired
     private final BoardService boardService;
 
-    @GetMapping("/list")
-    public String getList(Model model) {
-        List<Board> boardList = this.boardService.getBoardList();
+    @GetMapping("/list")  // 각 상세 URL만 작성
+    public String getList(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
+        Page<Board> pagingBoard = this.boardService.getBoardList(page);
 
-        model.addAttribute("boardList", boardList); // 모델에 게시판 목록 추가
-        return "board_list"; // 뷰 이름을 반환
+        model.addAttribute("pagingBoard", pagingBoard);
+        return "board_list";  // board_list.html 필요
     }
-
+    
     @GetMapping("/detail/{bno}")
-    public String getDetail(Model model, @PathVariable("bno") Long bno) {
+    public String getDetail(Model model, @PathVariable("bno") Long bno, ReplyForm replyForm) {
         Board board = this.boardService.getBoardOne(bno);
 
-        model.addAttribute("board", board); // 모델에 게시판 상세 정보 추가
-        return "board_detail"; // 뷰 이름을 반환
+        model.addAttribute("board", board);
+        return "board_detail"; // board_detail.html 필요
     }
-
-    @GetMapping("/create")
-    public String getCreate() {
-        return "board_create"; // board_create.html 파일 생성
+    
+    @GetMapping("/create")  // 작성을 요청할때 
+    public String getCreate(BoardForm boardForm) {
+        return "board_create";  // board_crate.html 파일 생성
     }
 
     @PostMapping("/create") // 저장 버튼 클릭 후
-    public String setCreate(@RequestParam(value="title") String title, 
-                            @RequestParam(value="content") String content) {
-        //TODO: process POST request
-        this.boardService.setBoardOne(title,content);
+    public String setCreate(@Valid BoardForm boardForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "board_create"; // 에러가 있으면 다시 글쓰기 페이지로 이동
 
-        return "redirect:/board/list";
+        this.boardService.setBoardOne(boardForm.getTitle(), boardForm.getContent());
+        
+        return "redirect:/board/list"; // 글쓰기 후 목록으로 이동
     }
     
-    
+
 }

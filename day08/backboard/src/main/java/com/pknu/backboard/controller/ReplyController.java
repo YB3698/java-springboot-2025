@@ -3,13 +3,15 @@ package com.pknu.backboard.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pknu.backboard.entity.Board;
 import com.pknu.backboard.service.BoardService;
 import com.pknu.backboard.service.ReplyService;
+import com.pknu.backboard.validation.ReplyForm;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -30,11 +32,16 @@ public class ReplyController {
 
   // form태그에서 post 액션이 발생하니까. PostMapping을 사용
   @PostMapping("/create/{bno}")
-  public String setReply(Model model, @PathVariable("bno") Long bno,
-      @RequestParam(value = "content") String content) {
-    Board board = this.boardService.getBoardOne(bno);
-    this.replyService.setReply(board, content);
+      public String setReply(Model model, @PathVariable("bno") Long bno, 
+                            @Valid ReplyForm replyForm, BindingResult bindingResult) {
+          Board board = this.boardService.getBoardOne(bno);
 
-    return String.format("redirect:/board/detail/%d", bno);
+          if (bindingResult.hasErrors()) {
+              model.addAttribute("board", board);
+              return "board_detail"; // 에러가 있으면 다시 상세 페이지로 이동
+          }
+          this.replyService.setReply(board, replyForm.getContent());
+          
+          return String.format("redirect:/board/detail/%s", bno);
   }
 }

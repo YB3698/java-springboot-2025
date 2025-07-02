@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.pknu.backboard.entity.Board;
@@ -23,6 +26,13 @@ public class BoardService {
     public List<Board> getBoardList() {
         return this.boardRepository.findAll();
     }
+    
+    // 페이징용 게시판 조회 메서드
+    public Page<Board> getBoardList(int page) {
+        Pageable pageable = PageRequest.of((page - 1),10); // 10을 변경해서 한페이지에 20,30개도 표현가능
+
+        return this.boardRepository.findAll(pageable);
+    }
 
     // SELECT * FROM board WHERE bno = ?
     public Board getBoardOne(Long bno) {
@@ -39,8 +49,8 @@ public class BoardService {
         Board board = new Board();
         board.setTitle(title); // 파라미터로 넘어온 변수를 파라미터로 입력
         board.setContent(content); // 내용도 마찬가지
-        board.setCreateDate(LocalDateTime.now());
-        this.boardRepository.save(board); //
+        board.setCreateDate(LocalDateTime.now()); // 현재시간으로 입력
 
+        this.boardRepository.save(board); // 저장
     }
 }
