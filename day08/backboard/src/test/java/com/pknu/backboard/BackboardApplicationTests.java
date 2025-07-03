@@ -39,9 +39,9 @@ class BackboardApplicationTests {
       this.boardRepository.save(board2); // INSERT 실행
    }
 
-   @Test // INSERT 200개만
+   @Test // INSERT 500개만
    void testInsertDummyJpa() {
-      for (int i = 0; i < 200; i++) {
+      for (int i = 0; i < 500; i++) {
          Board board = new Board();
          board.setTitle(String.format("테스트 더미데이터입니다 %03d", i));
          board.setContent("특별한 내용은 없습니다.");

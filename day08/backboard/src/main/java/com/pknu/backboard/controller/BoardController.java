@@ -1,7 +1,5 @@
 package com.pknu.backboard.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -9,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import com.pknu.backboard.entity.Board;
-import com.pknu.backboard.entity.Reply;
 import com.pknu.backboard.service.BoardService;
 import com.pknu.backboard.validation.BoardForm;
 import com.pknu.backboard.validation.ReplyForm;
@@ -33,11 +30,18 @@ public class BoardController {
     @Autowired
     private final BoardService boardService;
 
+    // @GetMapping("/list")  // 각 상세 URL만 작성
+    // public String getList(Model model) {
+    //     List<Board> boardList = this.boardService.getBoardList();
+
+    //     model.addAttribute("boardList", boardList);
+    //     return "board_list";  // board_list.html 필요
+    // }
     @GetMapping("/list")  // 각 상세 URL만 작성
     public String getList(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
-        Page<Board> pagingBoard = this.boardService.getBoardList(page);
-
-        model.addAttribute("pagingBoard", pagingBoard);
+        Page<Board> boardPaging = this.boardService.getBoardList(page);        
+        
+        model.addAttribute("boardPaging", boardPaging);
         return "board_list";  // board_list.html 필요
     }
     
@@ -54,15 +58,14 @@ public class BoardController {
         return "board_create";  // board_crate.html 파일 생성
     }
 
-    @PostMapping("/create") // 저장 버튼 클릭 후
+    @PostMapping("/create") // 저장버튼 클릭 후 
     public String setCreate(@Valid BoardForm boardForm, BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "board_create"; // 에러가 있으면 다시 글쓰기 페이지로 이동
+        if (bindingResult.hasErrors()) 
+            return "board_create";
 
+        // 포스트 액션이후 처리
         this.boardService.setBoardOne(boardForm.getTitle(), boardForm.getContent());
         
-        return "redirect:/board/list"; // 글쓰기 후 목록으로 이동
+        return "redirect:/board/list";  
     }
-    
-
 }

@@ -9,13 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import com.pknu.backboard.entity.Board;
 
-@Repository // 컨트롤러, 서비스, 엔티티는 @로 선언해줘야하지만 레파지토리는 굳이 안해줘도됨
+import lombok.NonNull;
+
+@Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
-    // 부가적인 기능이 더 필요
-    Board findByTitle(String title); // 제목으로 검색.
+    // 부가적인 기능이 더 필요  
+    Board findByTitle(String title);  // 제목으로 검색
 
-    List<Board> findByTitleLike(String title); // 비슷한 제목으로 검색.
+    List<Board> findByTitleLike(String title);  // 비슷한 제목으로 검색
 
-    Page<Board> findAll(Pageable pageable);
-
-}
+    @SuppressWarnings("null")
+    @NonNull
+    Page<Board> findAll(Pageable pageable); // 페이징 가능한 findAll() 새로 생성
+} 
