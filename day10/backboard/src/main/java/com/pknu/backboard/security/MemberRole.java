@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum MemberRole {
-    ADMIN("ROLE_ADMIN"), // 공동 코드와 유사하게
+    ADMIN("ROLE_ADMIN"),  // 공통코드와 유사하게 
     USER("ROLE_USER");
 
     MemberRole(String value) {
@@ -12,5 +12,4 @@ public enum MemberRole {
     }
 
     private String value;
-
 }

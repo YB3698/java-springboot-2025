@@ -2,11 +2,14 @@ package com.pknu.backboard.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 // 스프링시큐리티 핵심파일!!
 @Configuration      // 스프링 환경설정 파일 
@@ -30,7 +33,7 @@ public class SecurityConfig {
             // 로그인URL 접근 지정. 로그인페이지 URL과 로그인성공후 페이지 URL 지정
             .formLogin((fl) -> fl.loginPage("/member/signin")
                                  .defaultSuccessUrl("/"))
-            // 로그아웃URL 지정.
+            // 로그아웃URL 지정. POST매핑이 일어나야 함
             .logout((lo) -> lo.logoutUrl("/member/signout")
                               .logoutSuccessUrl("/")
                               .invalidateHttpSession(true))
@@ -39,4 +42,15 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // 스프링시큐리티로 MemberSecurityService와 패스워드 등을 내부적으로 사용, 인증 + 권한 부여 프로세스 처리
+    @Bean
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+
+    // 회원가입, 로그인시 동일하게 사용(로그인시 스프링 시큐리티가 자동으로 사용)
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();  // 회원가입 패스워드 암호화시 사용한 엔코더와 동일
+    }
 }
