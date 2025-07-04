@@ -633,9 +633,43 @@
 
     4. 웹 보안용어
         - CORS : Cross-Origin Resource Sharing
-            - 기본적으로 서로 다른 오리진(웹서버)인 경우 리소스를 서로 사용할 수 없음
-            - CSRF : Cross-Site Request Forgery
-                - 명시적인 동의 없이 사용자를 대신해서 웹 앱이 악의적인 행동을 취하는 공격
+            - 기본적으로 서로 다른 오리진(웹서버)인 경우 리소스를 서로 사용할 수 없음            
+        - CSRF : Cross-Site Request Forgery
+            - 명시적인 동의 없이 사용자를 대신해서 웹 앱이 악의적인 행동을 취하는 공격
 
+    6. 스프링 시큐리티 설정 (계속)
+        1. SecurityConfig 클래스 내 filterChain 메서드에 CSRF 등 관련 설정 추가
+    
+    7. 회원가입 구현
+        1. Member 엔티티 클래스 작성
+        2. MemberRepository 인터페이스 작성
+        3. MemberService 클래스 작성
+        4. MemberForm 클래스 작성
+        5. MemberController 클래스 작성
+        6. templates/signup.html 작성
+
+    8. MainController에 URL / 관련 메서드 작업
+        - @GetMapping("/")    
+
+    9. 중복회원 방지 처리
+        1. MemberRepository 커스텀 메서드 추가
+        2. MemberService 중복여부 체크 메서드 추가
+        3. MemberController, setSignUp 메서드 수정
+
+    10. 회원 로그인
+        1. SecurityConfig 클래스에 로그인관련 filterChain 추가
+  
+## 10일차
+
+### 스프링부트 Backboard 프로젝트(계속)
+
+2. Spring Boot Security (계속)
+    1. 회원 로그인
+        1. MemberRole
+        2. MmeberSecurityService
+        3. signin.html
+        4. 회원 로그인 기능
+      
+    2. 회원 로그아웃 기능
 
 
