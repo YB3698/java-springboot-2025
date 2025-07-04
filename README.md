@@ -665,8 +665,9 @@
 
 2. Spring Boot Security (계속)
     1. 회원 로그인
-        1. MemberRole
-        2. MmeberSecurityService
+        1. MemberRole enum : 스프링 시큐리티에서 역할분배(Admin, User)
+        2. MmeberSecurityService : 스프링 시큐리티를 사용하는 로그인 서비스
+            - UserDetailsService 스프링 시큐리티 인터페이스를 구현
         3. signin.html
         4. 회원 로그인 기능
       
