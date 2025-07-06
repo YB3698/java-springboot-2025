@@ -46,4 +46,13 @@ public class MemberService {
             return false; // 없음. 회원가입 가능
         }
     }
+
+    public Member getMember(String username) {
+        Optional<Member> opMember = this.memberRepository.findByUsername(username);
+        if (opMember.isPresent()) {
+            return opMember.get();  // 사용자 정보 반환
+        } else {
+            throw new RuntimeException("member not found");
+        }
+    }
 }

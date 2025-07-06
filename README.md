@@ -724,4 +724,41 @@
         User altered.
         ```
 
+5. DB 테이블 연동 작업
+    1. Board에 글쓴이 컬럼 추가
+        1. Board에 Member 클래스변수 추가
+        2. BoardService setBoardOne()에 사용자 Member 파라미터 추가
+        3. MemberService getMember() 메서드 추가
+        4. BoardController setCreate() 메서드 내 서비스 setBoardOne() 메서드에 Principle 추가 수정
+        5. 계정세션이 없는 상태에서 작성을 하면 예외발생 - BoardController 계정관련 어노테이션 `@PreAuthorize` 추가
+        6. SecurityConfig에 계정세션 접근권한 어노테이션 `@EnableMethodSecurity` 추가 
+        7. board_list.html 에 작성자 표시 태그 추가
+        8. board_detail.html 에 작성자 표시 태그 추가
 
+    2. Reply에 글쓴이 컬럼 추가
+        1. Reply에 Member 클래스 변수 추가
+        2. ReplyService에 사용자 Member 파라미터 추가
+        3. ReplyController setReply() Principle 추가
+        4. ReplyController @PreAuthorize 추가
+        5. board_detail.html 댓글부분에 계정관련 태그, 작성자 표시 태그 추가
+
+    3. Board 게시글 수정, 삭제 추가
+        1. board_detail.html 수정, 삭제 버튼 추가
+        2. BoardService에 게시글 수정메서드 putBoardOne(), 삭제메서드 deleteBoardOne() 추가
+        3. BoardController에 게시글 수정 GetMapping 메서드 추가
+        4. board_create.html th:action을 삭제, 등록과 수정을 동시에 처리할 수 있는 hidden태그를 작성
+        5. BoardController에 수정 PostMapping 메서드 추가
+
+
+
+https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
+
+
+
+## 11일차
+
+### 스프링부트 Backboard 프로젝트(계속)
+
+5. DB 테이블 연동 작업 (계속)
+    1. Board 게시글 삭제 추가
+        1. ...
