@@ -1,0 +1,16 @@
+h1 {
+    color: blue;
+}
+
+textarea {
+    width: 100%;
+    background-color: gainsboro;
+}
+
+input[type=submit] {
+    background-color: limegreen;
+}
+
+.form-signup {
+    min-width: 330px;
+}
